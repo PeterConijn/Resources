@@ -47,13 +47,18 @@ codeunit 50101 Localization
     local procedure SetFlag(var RegionDefault: Record "Region Default"; JLocalizationObject: JsonObject)
     var
         InStream: InStream;
+        Flags: List of [Text];
         FlagName: Text;
     begin
         if not JLocalizationObject.Keys.Contains('flag') then
             exit;
 
-        FlagName := JLocalizationObject.GetText('flag');
-        NavApp.GetResource('Settings/' + FlagName, InStream);
+        FlagName := 'Settings/Flags/' + JLocalizationObject.GetText('flag');
+        Flags := NavApp.ListResources('Settings/Flags/');
+        if not Flags.Contains(FlagName) then
+            exit;
+
+        NavApp.GetResource(FlagName, InStream);
         if InStream.Length = 0 then
             exit;
 
