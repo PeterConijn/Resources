@@ -1,6 +1,4 @@
-namespace Resources.Resources;
-
-using PC.ResourceDemo.Localization;
+namespace PC.ResourceDemo.Localization;
 
 page 50101 "Localization Settings"
 {
@@ -25,8 +23,6 @@ page 50101 "Localization Settings"
                     ToolTip = 'Specifies the localization of the country or region.';
 
                     trigger OnValidate()
-                    var
-                        Localization: Codeunit Localization;
                     begin
                         Localization.SetLocalization(CurrentLocalization, Rec);
                     end;
@@ -54,17 +50,27 @@ page 50101 "Localization Settings"
                 }
             }
         }
+        area(FactBoxes)
+        {
+            part(RegionFlag; "Region Flag")
+            {
+                SubPageLink = "Code" = field(Code);
+            }
+        }
     }
 
     trigger OnOpenPage()
     begin
-        if not Rec.IsEmpty() then
-            exit;
+        if Rec.IsEmpty() then begin
+            Rec.Init();
+            Rec.Insert(true);
+        end;
 
-        Rec.Init();
-        Rec.Insert(true);
+        CurrentLocalization := Enum::Localization::" ";
+        Localization.SetLocalization(CurrentLocalization, Rec);
     end;
 
     var
+        Localization: Codeunit Localization;
         CurrentLocalization: Enum Localization;
 }

@@ -38,6 +38,11 @@ table 50101 "Region Default"
             Caption = 'Language ID';
             ToolTip = 'Specifies the language ID in the selected country or region.';
         }
+        field(7; Flag; Media)
+        {
+            Caption = 'Flag';
+            ToolTip = 'Specifies the flag of the selected country or region.';
+        }
     }
     keys
     {
