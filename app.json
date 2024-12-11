@@ -1,0 +1,35 @@
+{
+  "id": "877e3a9d-d1aa-48c9-bc5e-902f5c0bd8a2",
+  "name": "Resources",
+  "publisher": "PC",
+  "version": "1.0.0.0",
+  "brief": "Demo for using resources",
+  "description": "",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "",
+  "dependencies": [],
+  "screenshots": [],
+  "platform": "1.0.0.0",
+  "application": "26.0.0.0",
+  "idRanges": [
+    {
+      "from": 50100,
+      "to": 50110
+    }
+  ],
+  "resourceExposurePolicy": {
+    "allowDebugging": true,
+    "allowDownloadingSource": true,
+    "includeSourceInSymbolFile": true
+  },
+  "runtime": "15.0",
+  "resourceFolders": [
+    "Resources"
+  ],
+  "features": [
+    "NoImplicitWith"
+  ]
+}
