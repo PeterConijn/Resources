@@ -44,6 +44,7 @@ page 50101 "Localization Settings"
                 }
                 field("Language ID"; Rec."Language ID")
                 {
+                    BlankZero = true;
                 }
                 field("Currency Symbol"; Rec."Currency Symbol")
                 {
